@@ -1,0 +1,16 @@
+{
+    "register": "Regjistrohu",
+    "email": "Email Adresa",
+    "name": "Emri",
+    "password": "Fjalëkalimi",
+    "confirm_password": "Konfirmoni Fjalëkalimin",
+    "throttle": "Too many login attempts. Please try again in :seconds seconds.",
+    "log_in": "Kyçu",
+    "email_or_username": "Email ose Emrin e Përdoruesit",
+    "equipment": "Paisjet",
+    "methods": "Metodat",
+    "tests": "Testet",
+    "sign_up": "Hyni",
+    "logout": "Shkyçu",
+    "Hi": "Pershendetje"
+}

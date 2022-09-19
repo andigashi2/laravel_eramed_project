@@ -1,0 +1,16 @@
+{
+    "register": "Register",
+    "email": "Email",
+    "name": "Name",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "throttle": "Too many login attempts. Please try again in :seconds seconds.",
+    "log_in": "Log In",
+    "email_or_username": "Email or Username",
+    "equipment": "Equipment",
+    "methods": "Methods",
+    "tests": "Tests",
+    "sign_up": "Sign Up",
+    "logout": "Log Out",
+    "Hi": "Hi"
+}
