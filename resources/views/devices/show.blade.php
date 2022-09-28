@@ -2,9 +2,8 @@
     @extends('layouts.app-master')
     @section('content')
         <div class="container justify-content-center">
-            <form class="row form_general w-75 m-auto" method="POST" action="{{ route('devices.update', $device->id ) }} }}">
+            <div class="row form_general w-75 m-auto">
                 @csrf
-                @method('PUT')
                 @include('layouts.partials.eramed-logo')
 
                 <h2 class="h3 mb-4 fw-normal px-1">Pajisja: <span class="fw-bold">{{ $device->type_of_device }}</span></h2>
@@ -84,7 +83,9 @@
                         <label class="form-label" for="eramedLabIc">@lang('eramed_laboratory_identification_code')</label>
                     </div>
                 </div>
-            </form>
+
+                @include('calibrations.show')
+            </div>
         </div>
     @endsection
 @endauth

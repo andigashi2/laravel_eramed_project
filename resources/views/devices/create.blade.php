@@ -123,7 +123,7 @@
                         @endif
                     </div>
                 </div>
-
+                @include('calibrations.create')
                 <div class="row justify-content-end p-0 m-0">
                     <button class="col-2 btn btn-lg btn-primary" type="submit">Krijo</button>
                 </div>

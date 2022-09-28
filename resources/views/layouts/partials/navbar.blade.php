@@ -3,8 +3,8 @@
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <li><a class="nav-link px-2 text-white" href="{{ route('devices.index') }}">@lang('equipment')</a></li>
-                <li><a class="nav-link px-2 text-white" href="{{ route('methods.index') }}">@lang('methods')</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ route('laboratories.index') }}">@lang('laboratories')</a></li>
+                <li><a class="nav-link px-2 text-white" href="{{ route('methods.index') }}">@lang('methods')</a></li>
                 <li><a class="nav-link px-2 text-white" href="{{ url('test') }}">@lang('certificate_test')</a></li>
             </ul>
 

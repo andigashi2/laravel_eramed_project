@@ -16,10 +16,10 @@ class Calibration extends Model
     protected $table = 'calibrations';
 
     protected $fillable = [
-    'cal_date',
-    'nr_cert_cal',
-    'cal_lab',
-    'cal_due_date',
-    'cal_interval',
+        'cal_date',
+        'nr_cert_cal',
+        'cal_lab',
+        'cal_due_date',
+        'cal_interval',
     ];
 }

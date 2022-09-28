@@ -1,50 +1,20 @@
-@auth
-    @extends('layouts.app-master')
-    @section('content')
-        <div class="container justify-content-center">
-            <form class="row form_general w-75 m-auto" method="POST" action="{{ route('calibrations.update', $calibration->id ) }} }}">
-                @csrf
-                @method('PUT')
-                @include('layouts.partials.eramed-logo')
-
-                <h2 class="h3 mb-4 fw-normal px-1">Pajisja: <span class="fw-bold">{{ $calibration->type_of_calibration }}</span></h2>
-
-                <div class="d-flex justify-content-start mb-4 px-0">
-                    <div class="col-6 mx-1 disabled">
-                        <input class="form-control form-control-lg" value="{{$calibration->calibration->name }}" readonly>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-around mb-4">
-                    <div class="col-4 form-outline mx-1">
-                        <input id="typeOfDevice" class="form-control form-control-lg" value="{{ $calibration->type_of_calibration }}" readonly>
-                        <label class="form-label" for="typeOfDevice">@lang('cal_date')</label>
-                    </div>
-
-                    <div class="col-4 form-outline mx-1">
-                        <input id="measurementLimits" class="form-control form-control-lg" value="{{ $calibration->measurement_limits }}" readonly>
-                        <label class="form-label" for="measurementLimits">@lang('nr_cert_cal')</label>
-                    </div>
-
-                    <div class="col-4 form-outline mx-1">
-                        <input id="manufacturer" class="form-control form-control-lg" value="{{ $calibration->manufacturer }}" readonly>
-                        <label class="form-label" for="manufacturer">@lang('cal_lab')</label>
-                    </div>
-                </div>
-
-                <div class="d-flex justify-content-around mb-4">
-                    <div class="col-4 form-outline mx-1">
-                        <input id="serialNumber" class="form-control form-control-lg" value="{{ $calibration->serial_number }}" readonly>
-                        <label class="form-label" for="serialNumber">@lang('cal_due_date')</label>
-                    </div>
-
-                    <div class="col-4 form-outline mx-1">
-                        <input id="currentLocation" class="form-control form-control-lg" value="{{ $calibration->current_location }}" readonly>
-                        <label class="form-label" for="currentLocation">@lang('cal_interval')</label>
-                    </div>
-                </div>
-                </div>
-            </form>
-        </div>
-    @endsection
-@endauth
+<table id="calibrationTable" class="table table-bordered" >
+    <thead class="bg-primary bg-opacity-75 text-white">
+    <tr>
+        <th class="text-center px-2 py-3" scope="col">Calibration Date</th>
+        <th class="text-center px-2 py-3" scope="col">Nr. of certificate of calibration</th>
+        <th class="text-center px-2 py-3" scope="col">Calibration lab</th>
+        <th class="text-center px-2 py-3" scope="col">Due date for next Calibration</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($device->calibrations as $key => $calibration)
+        <tr>
+            <td><input class="form-control" name="cal_date[]" value="{{$calibration->cal_date}}" readonly/></td>
+            <td><input class="form-control" name="nr_cert_cal[]" value="{{$calibration->nr_cert_cal}}" readonly/></td>
+            <td><input class="form-control" name="cal_lab[]" value="{{$calibration->cal_lab}}" readonly/></td>
+            <td><input class="form-control" name="cal_due_date[]" value="{{$calibration->cal_due_date}}" readonly/></td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
