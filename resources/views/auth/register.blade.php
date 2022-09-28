@@ -3,13 +3,13 @@
     @section('content')
         <form class="form_general" method="post" action="{{ route('register.perform') }}">
 
-            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <img class="mb-4" src="{!! url('images/eramed.jpg') !!}" alt="" width="72" height="57">
+            @csrf
+            <img class="mb-4" src="{!! url('images/eramed.jpg') !!}" alt="" width="250" height="150">
 
             <h1 class="h3 mb-3 fw-normal">@lang('register')</h1>
 
             <div class="form-group form-floating mb-3">
-                <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="name@example.com" required="required" autofocus>
+                <input type="email" class="form-control" name="email" value="{{ old('email') }}" required="required" autofocus />
                 <label for="floatingEmail">@lang('email')</label>
                 @if ($errors->has('email'))
                     <span class="text-danger text-left">{{ $errors->first('email') }}</span>
@@ -48,6 +48,8 @@
 @endauth
 
 @guest
-    You have no rights here!
+    @section('content')
+        <h1 class="text-bg-secondary p-3 rounded-2 mt-4">You have no rights here!</h1>
+    @endsection
 @endguest
 

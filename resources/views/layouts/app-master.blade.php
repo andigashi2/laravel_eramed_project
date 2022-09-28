@@ -14,16 +14,21 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <!-- Bootstrap CSS -->
         <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+        <!-- MD Bootstrap CSS -->
+        <link href="{{ asset('css/mdbootstrap.css') }}" rel="stylesheet">
     </head>
 
     <body>
-        @include('layouts.partials.navbar')
+        @auth
+            @include('layouts.partials.navbar')
+        @endauth
 
         <main class="container">
             @yield('content')
-            @include('layouts.partials.copy')
+            @auth
+                @include('layouts.partials.copy')
+            @endauth
         </main>
-
         <script src="{{ asset('js/app.js') }}"></script>
     </body>
 </html>

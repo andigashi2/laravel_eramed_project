@@ -17,8 +17,12 @@
         "resolve-url-loader": "^5.0.0"
     },
     "dependencies": {
+        "@popperjs/core": "^2.11.6",
         "bootstrap": "^5.2.1",
-        "sass": "^1.54.9",
+        "bootstrap-icons": "^1.9.1",
+        "jquery": "^3.6.1",
+        "mdb-ui-kit": "^5.0.0",
+        "sass": "^1.55.0",
         "sass-loader": "^13.0.2"
     }
 }
