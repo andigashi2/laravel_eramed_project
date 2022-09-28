@@ -3293,7 +3293,7 @@ jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(fu
     var action = '<td>' + '<button class="calibration-row-delete btn btn-danger px-2 py-1" type="button">' + '<i class="bi bi-trash-fill text-white"></i>' + '</button>' + '</td>';
     jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()('#calibrationTable').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action + '</tr>');
   });
-  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(".calibration-row-delete").on('click', function (event) {
+  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#calibrationTable").on('click', '.calibration-row-delete', function (event) {
     event.stopPropagation();
     jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().remove();
   });

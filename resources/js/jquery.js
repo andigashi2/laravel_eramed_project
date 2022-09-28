@@ -17,7 +17,7 @@ $(document).ready(function() {
         $('#calibrationTable').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action +'</tr>');
     });
 
-    $(".calibration-row-delete").on('click', function (event){
+    $("#calibrationTable").on('click', '.calibration-row-delete', function (event){
         event.stopPropagation();
         $(this).parent().parent().remove();
     });
