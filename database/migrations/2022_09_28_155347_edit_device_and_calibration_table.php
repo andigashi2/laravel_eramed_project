@@ -13,10 +13,6 @@ class EditDeviceAndCalibrationTable extends Migration
      */
     public function up()
     {
-//        Schema::table('devices', function (Blueprint $table) {
-//            $table->dropColumn('calibration_id');
-//        });
-
         Schema::table('calibrations', function (Blueprint $table) {
             $table->unsignedBigInteger('device_id');
             $table->foreign('device_id')->references('id')->on('devices')->onDelete('cascade');

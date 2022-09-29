@@ -10,10 +10,10 @@
     </thead>
     <tbody>
         <tr>
-            <td><input class="form-control" type="date" name="cal_date[]"/></td>
-            <td><input class="form-control" type="text" name="nr_cert_cal[]" /></td>
-            <td><input class="form-control" type="text" name="cal_lab[]" /></td>
-            <td><input class="form-control" type="date" name="cal_due_date[]" /></td>
+            <td><input class="form-control" type="date" name="cal_date[]" required /></td>
+            <td><input class="form-control" type="text" name="nr_cert_cal[]" required /></td>
+            <td><input class="form-control" type="text" name="cal_lab[]" required /></td>
+            <td><input class="form-control" type="date" name="cal_due_date[]" required /></td>
             <td>
                 <button class="calibration-row-delete btn btn-danger px-2 py-1" type="button">
                     <i class="bi bi-trash-fill text-white"></i>

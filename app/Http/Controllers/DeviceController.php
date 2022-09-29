@@ -128,7 +128,7 @@ class DeviceController extends Controller
                 'nr_cert_cal' => $request->nr_cert_cal[$i],
                 'cal_lab' => $request->cal_lab[$i],
                 'cal_due_date' => $request->cal_due_date[$i],
-                'cal_interval' => 'asdas',
+                'cal_interval' => '1 Year',
                 'device_id' =>  $deviceId
             ];
         }

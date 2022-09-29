@@ -3286,10 +3286,10 @@ __webpack_require__.r(__webpack_exports__);
 window.$ = window.jQuery = (jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default());
 jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
   jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#addCalibration").click(function () {
-    var calDate = '<td><input class="form-control" type="date" name="cal_date[]" /></td>';
-    var nrCertCal = '<td><input class="form-control" type="text" name="nr_cert_cal[]" /></td>';
-    var calLab = '<td><input class="form-control" type="text" name="cal_lab[]" /></td>';
-    var calDueDate = '<td><input class="form-control" type="date" name="cal_due_date[]" /></td>';
+    var calDate = '<td><input class="form-control" type="date" name="cal_date[]" required /></td>';
+    var nrCertCal = '<td><input class="form-control" type="text" name="nr_cert_cal[]" required /></td>';
+    var calLab = '<td><input class="form-control" type="text" name="cal_lab[]" required /></td>';
+    var calDueDate = '<td><input class="form-control" type="date" name="cal_due_date[]" required /></td>';
     var action = '<td>' + '<button class="calibration-row-delete btn btn-danger px-2 py-1" type="button">' + '<i class="bi bi-trash-fill text-white"></i>' + '</button>' + '</td>';
     jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()('#calibrationTable').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action + '</tr>');
   });

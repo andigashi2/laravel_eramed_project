@@ -31,7 +31,6 @@ class CreateDevice extends Migration
             $table->string("eramed_laboratory_identification_code");
 
             $table->bigInteger("laboratory_id")->nullable();
-            $table->bigInteger("calibration_id")->nullable();
             $table->bigInteger("intermediate_check_id")->nullable();
             $table->timestamps();
         });

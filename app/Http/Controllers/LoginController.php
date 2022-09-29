@@ -16,7 +16,7 @@ class LoginController extends Controller
      *
      * @return Renderable
      */
-    public function show()
+    public function show(): Renderable
     {
         return view('auth.login');
     }
