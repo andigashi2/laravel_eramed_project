@@ -44,4 +44,8 @@ class Device extends Model
     public function calibrations(): HasMany {
         return $this->hasMany(Calibration::class, 'device_id', 'id');
     }
+
+    public function intermediates(): HasMany {
+        return $this->hasMany(IntermediateCheck::class, 'device_id', 'id');
+    }
 }

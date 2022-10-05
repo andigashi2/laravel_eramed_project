@@ -3,20 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CalibrationRequest;
-use App\Models\Laboratory;
 use App\Models\Calibration;
-use App\Models\Method;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
 
 class CalibrationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Renderable
      */
     public function index(): Renderable
     {
@@ -27,9 +24,9 @@ class CalibrationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Renderable
      */
-    public function create():Renderable
+    public function create() : Renderable
     {
         return view('calibrations/create');
     }
@@ -37,7 +34,7 @@ class CalibrationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  CalibrationRequest  $request
+     * @param  CalibrationRequest $request
      * @return RedirectResponse
      */
     public function store(CalibrationRequest $request): RedirectResponse
@@ -52,7 +49,7 @@ class CalibrationController extends Controller
      * @param  Calibration  $calibration
      * @return Renderable
      */
-    public function show(calibration $calibration)
+    public function show(calibration $calibration): Renderable
     {
         return view('calibrations/show', compact('calibration'));
     }
@@ -63,7 +60,7 @@ class CalibrationController extends Controller
      * @param  Calibration  $calibration
      * @return Renderable
      */
-    public function edit(calibration $calibration)
+    public function edit(calibration $calibration): Renderable
     {
         return view('calibrations/edit', compact('calibration'));
     }
@@ -75,7 +72,7 @@ class CalibrationController extends Controller
      * @param  Calibration  $calibration
      * @return RedirectResponse
      */
-    public function update(Request $request, calibration $calibration)
+    public function update(Request $request, calibration $calibration): RedirectResponse
     {
         $calibration->update($request->validated());
         return redirect('/calibrations')->with('success', "Calibration successfully updated.");
@@ -87,7 +84,7 @@ class CalibrationController extends Controller
      * @param  Calibration  $calibration
      * @return RedirectResponse
      */
-    public function destroy(calibration $calibration)
+    public function destroy(calibration $calibration): RedirectResponse
     {
         $calibration->delete();
         return redirect('/calibrations')->with('success', "Calibration successfully deleted.");

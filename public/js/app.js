@@ -3285,15 +3285,23 @@ __webpack_require__.r(__webpack_exports__);
 
 window.$ = window.jQuery = (jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default());
 jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {
-  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#addCalibration").click(function () {
+  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#add-calibration").click(function () {
     var calDate = '<td><input class="form-control" type="date" name="cal_date[]" required /></td>';
     var nrCertCal = '<td><input class="form-control" type="text" name="nr_cert_cal[]" required /></td>';
     var calLab = '<td><input class="form-control" type="text" name="cal_lab[]" required /></td>';
     var calDueDate = '<td><input class="form-control" type="date" name="cal_due_date[]" required /></td>';
     var action = '<td>' + '<button class="calibration-row-delete btn btn-danger px-2 py-1" type="button">' + '<i class="bi bi-trash-fill text-white"></i>' + '</button>' + '</td>';
-    jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()('#calibrationTable').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action + '</tr>');
+    jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()('#calibration-table').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action + '</tr>');
   });
-  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#calibrationTable").on('click', '.calibration-row-delete', function (event) {
+  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#add-intermediate-check").click(function () {
+    var date = '<td><input class="form-control" type="date" name="date[]" required /></td>';
+    var measurement = '<td><input class="form-control" type="text" name="measurement[]" required /></td>';
+    var expandedUncertainty = '<td><input class="form-control" type="text" name="expanded_uncertainty[]" required /></td>';
+    var maxMpe = '<td><input class="form-control" type="text" name="max_mpe[]" required /></td>';
+    var action = '<td>' + '<button class="intermediate-check-row-delete btn btn-danger px-2 py-1" type="button">' + '<i class="bi bi-trash-fill text-white"></i>' + '</button>' + '</td>';
+    jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()('#intermediate-check-table').find('tbody').append('<tr>' + date + measurement + expandedUncertainty + maxMpe + action + '</tr>');
+  });
+  jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()("#calibration-table, #intermediate-check-table").on('click', '.common-row-delete', function (event) {
     event.stopPropagation();
     jquery_dist_jquery_min__WEBPACK_IMPORTED_MODULE_0___default()(this).parent().parent().remove();
   });

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\DeviceRequest;
 use App\Models\Device;
 use App\Models\Calibration;
+use App\Models\IntermediateCheck;
 use App\Models\Laboratory;
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
@@ -65,7 +66,9 @@ class DeviceController extends Controller
     {
         $device = Device::create($request->validated());
         $calibrationsArray = $this->createCalibrationArray($request, $device->id);
+        $intermediateCheckArray = $this->createIntermediateCheckArray($request, $device->id);
         Calibration::upsert($calibrationsArray, 'device_id');
+        IntermediateCheck::upsert($intermediateCheckArray, 'device_id');
         return redirect('/devices')->with('success', "Device successfully created.");
     }
 
@@ -97,9 +100,17 @@ class DeviceController extends Controller
     public function update(DeviceRequest $request, Device $device): RedirectResponse
     {
         $calibrationsArray = $this->createCalibrationArray($request, $device->id);
-
+        $intermediateCheckArray = $this->createIntermediateCheckArray($request, $device->id);
         Calibration::where('device_id', $device->id)->delete();
-        Calibration::upsert($calibrationsArray, 'device_id');
+        IntermediateCheck::where('device_id', $device->id)->delete();
+
+        if(!is_null($calibrationsArray)) {
+            Calibration::upsert($calibrationsArray, 'device_id');
+        }
+
+        if(!is_null($intermediateCheckArray)) {
+            IntermediateCheck::upsert($intermediateCheckArray, 'device_id');
+        }
 
         $device->update($request->validated());
         return redirect('/devices')->with('success', "Device successfully updated.");
@@ -117,10 +128,14 @@ class DeviceController extends Controller
         return redirect('/devices')->with('success', "Device successfully deleted.");
     }
 
-    private function createCalibrationArray($request, $deviceId): array
+    private function createCalibrationArray($request, $deviceId): ?array
     {
         /** Create calibration array that contains all the new data we got from frontend */
         $calibrationArray = [];
+        if(!is_array($request->cal_date)){
+            return null;
+        }
+
         $calibrationLength = count($request->cal_date);
         for ($i = 0; $i < $calibrationLength; $i++) {
             $calibrationArray[] = [
@@ -134,6 +149,28 @@ class DeviceController extends Controller
         }
 
         return $calibrationArray;
+    }
+
+    private function createIntermediateCheckArray($request, $deviceId): ?array
+    {
+        /** Create intermediateCheck array that contains all the new data we got from frontend */
+        $intermediateCheckArray = [];
+        if(!is_array($request->date)){
+            return null;
+        }
+
+        $intermediateCheckLength = count($request->date);
+        for ($i = 0; $i < $intermediateCheckLength; $i++) {
+            $intermediateCheckArray[] = [
+                'date' => $request->date[$i],
+                'measurement' => $request->measurement[$i],
+                'expanded_uncertainty' => $request->expanded_uncertainty[$i],
+                'max_mpe' => $request->max_mpe[$i],
+                'device_id' =>  $deviceId
+            ];
+        }
+
+        return $intermediateCheckArray;
     }
 }
 

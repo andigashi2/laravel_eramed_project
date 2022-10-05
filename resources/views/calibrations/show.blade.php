@@ -1,4 +1,4 @@
-<table id="calibrationTable" class="table table-bordered" >
+<table id="calibration-table" class="table table-bordered" >
     <thead class="bg-primary bg-opacity-75 text-white">
     <tr>
         <th class="text-center px-2 py-3" scope="col">Calibration Date</th>

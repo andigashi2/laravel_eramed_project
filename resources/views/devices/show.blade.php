@@ -85,6 +85,7 @@
                 </div>
 
                 @include('calibrations.show')
+                @include('intermediate-checks.show')
             </div>
         </div>
     @endsection

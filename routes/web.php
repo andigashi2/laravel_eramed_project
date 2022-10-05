@@ -21,7 +21,7 @@ Route::get('/test', function () {
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
-    /** Works for both, depends if you validate it in the view */
+    /** Works for both, depends on if you validate it in the view */
     Route::get('/home', 'HomeController@index')->name('home.index');
     Route::get('/register', 'RegisterController@show')->name('register.show');
 
@@ -39,5 +39,6 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::resource('devices', 'DeviceController');
         Route::resource('methods', 'MethodController');
         Route::resource('laboratories', 'LaboratoryController');
+        Route::resource('intermediate-checks', 'IntermediateChecksController');
     });
 });

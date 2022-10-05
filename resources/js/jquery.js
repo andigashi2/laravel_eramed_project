@@ -3,7 +3,7 @@ window.$ = window.jQuery = $;
 
 $(document).ready(function() {
 
-    $("#addCalibration").click(function() {
+    $("#add-calibration").click(function() {
         let calDate = '<td><input class="form-control" type="date" name="cal_date[]" required /></td>';
         let nrCertCal = '<td><input class="form-control" type="text" name="nr_cert_cal[]" required /></td>';
         let calLab = '<td><input class="form-control" type="text" name="cal_lab[]" required /></td>';
@@ -15,10 +15,25 @@ $(document).ready(function() {
                 '</button>' +
             '</td>';
 
-        $('#calibrationTable').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action +'</tr>');
+        $('#calibration-table').find('tbody').append('<tr>' + calDate + nrCertCal + calLab + calDueDate + action +'</tr>');
     });
 
-    $("#calibrationTable").on('click', '.calibration-row-delete', function (event){
+    $("#add-intermediate-check").click(function() {
+        let date = '<td><input class="form-control" type="date" name="date[]" required /></td>';
+        let measurement = '<td><input class="form-control" type="text" name="measurement[]" required /></td>';
+        let expandedUncertainty = '<td><input class="form-control" type="text" name="expanded_uncertainty[]" required /></td>';
+        let maxMpe = '<td><input class="form-control" type="text" name="max_mpe[]" required /></td>';
+        let action =
+            '<td>' +
+                '<button class="intermediate-check-row-delete btn btn-danger px-2 py-1" type="button">' +
+                    '<i class="bi bi-trash-fill text-white"></i>' +
+                '</button>' +
+            '</td>';
+
+        $('#intermediate-check-table').find('tbody').append('<tr>' + date + measurement + expandedUncertainty + maxMpe + action +'</tr>');
+    });
+
+    $("#calibration-table, #intermediate-check-table").on('click', '.common-row-delete', function (event){
         event.stopPropagation();
         $(this).parent().parent().remove();
     });
